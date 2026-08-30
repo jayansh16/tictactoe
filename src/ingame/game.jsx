@@ -1,7 +1,7 @@
 import Turnsee from "./sideturncheck"
 import Grid from "./grid"
 
- function game({playerdata,setplayerdata}){
+ function game({playerdata,setplayerdata,turn,changeturn}){
         return(
             <>
             <main>
@@ -9,12 +9,16 @@ import Grid from "./grid"
                   <Grid 
                     playerdata={playerdata}
                     setplayerdata={setplayerdata()}
+                    changeturn={changeturn}
+                    turn={turn}
                   />
                 </section>
                 <section className="turndisplay">
                   <Turnsee 
                     playerdata={playerdata}
                     setplayerdata={setplayerdata()}
+                    turn={turn}
+                    
                   />
                 </section>
             </main>

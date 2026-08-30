@@ -1,5 +1,5 @@
-import Game from "./game"
-import Gamestart from "./gamestart"
+import Game from "./ingame/game"
+import Gamestart from "./gamestart/playerset"
 import { useState } from "react"
 
 const [playerdata,setplayerdata]=useState([
@@ -25,12 +25,15 @@ const [playerdata,setplayerdata]=useState([
         currentturn:false
         }
     ])
+const [turn,changeturn]=useState("cross")
 function app(){
     if (gameon){
         return(
             <Game 
                 playerdata={playerdata}
                 setplayerdata={setplayerdata()}
+                turn={turn}
+                changeturn={changeturn}
             />
         )
     }
@@ -39,6 +42,7 @@ function app(){
             <Gamestart 
                 playerdata={playerdata}
                 setplayerdata={setplayerdata()}
+                
             />
         )
     }
