@@ -1,5 +1,5 @@
 const box = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-function grid({ playerdata, setplayerdata, turn, changeturn, showwon }) {
+function Grid({ playerdata, setplayerdata, turn, changeturn, showwon }) {
   function handlebox(n) {
     const owned = playerdata.flatMap((obj) => obj.ownedboxes);
     if (n in owned) {
@@ -23,4 +23,4 @@ function grid({ playerdata, setplayerdata, turn, changeturn, showwon }) {
     </div>
   ));
 }
-export default grid;
+export default Grid;

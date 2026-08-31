@@ -3,7 +3,7 @@ import Gamestart from "./gamestart/playerset";
 import Gameend from "./the end/endbox";
 import { useState } from "react";
 
-function app() {
+function App() {
   const [playerdata, setplayerdata] = useState([
     {
       symbol: "cross",
@@ -54,4 +54,4 @@ function app() {
   }
 }
 
-export default app;
+export default App;

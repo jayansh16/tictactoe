@@ -1,4 +1,4 @@
-function playerchoose({ playerdata, setplayerdata, turngame }) {
+function Playerchoose({ playerdata, setplayerdata, turngame }) {
   const player1 = document.querySelector("#player1").value;
   const player2 = document.querySelector("#player2").value;
   function handlestart() {
@@ -39,4 +39,4 @@ function playerchoose({ playerdata, setplayerdata, turngame }) {
   );
 }
 
-export default playerchoose;
+export default Playerchoose;

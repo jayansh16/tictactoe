@@ -1,7 +1,7 @@
 import Turnsee from "./sideturncheck";
 import Grid from "./grid";
 
-function game({ playerdata, setplayerdata, turn, changeturn, showwon }) {
+function Game({ playerdata, setplayerdata, turn, changeturn, showwon }) {
   return (
     <>
       <main>
@@ -25,4 +25,4 @@ function game({ playerdata, setplayerdata, turn, changeturn, showwon }) {
     </>
   );
 }
-export default game;
+export default Game;

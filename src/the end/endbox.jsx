@@ -1,4 +1,4 @@
-function showend(turngame) {
+function Showend(turngame) {
   function handlerestart() {
     const placeholder = "to restart game";
     turngame(false);
@@ -13,4 +13,4 @@ function showend(turngame) {
   );
 }
 
-export default showend;
+export default Showend;

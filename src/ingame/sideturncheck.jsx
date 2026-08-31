@@ -1,4 +1,4 @@
-function currentchance({ playerdata, turn }) {
+function Currentchance({ playerdata, turn }) {
   return (
     <div className="chanceshow">
       <h1>chance:</h1>
@@ -20,4 +20,4 @@ function currentchance({ playerdata, turn }) {
     </div>
   );
 }
-export default currentchance;
+export default Currentchance;
