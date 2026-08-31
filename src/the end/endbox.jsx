@@ -1,6 +1,7 @@
-function showend(){
+function showend(turngame){
     function handlerestart(){
         const placeholder="to restart game"
+        turngame(false)
     }
     return(
         <div className="endbox">

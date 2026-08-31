@@ -1,5 +1,6 @@
 import Game from "./ingame/game"
 import Gamestart from "./gamestart/playerset"
+import Gameend from "./the end/endbox"
 import { useState } from "react"
 
 const [playerdata,setplayerdata]=useState([
@@ -25,24 +26,33 @@ const [playerdata,setplayerdata]=useState([
         currentturn:false
         }
     ])
+const [gameon,turngame]=useState(false)
+const [won,showwon]=useState(false)
 const [turn,changeturn]=useState("cross")
 function app(){
     if (gameon){
-        return(
+        if (!won){return(
             <Game 
                 playerdata={playerdata}
                 setplayerdata={setplayerdata()}
                 turn={turn}
                 changeturn={changeturn}
+                showwon={showwon()}
             />
-        )
+        )}
+        else{
+            return(
+            <Gameend
+            turngame={turngame()}
+            />)
+        }
     }
     else {
         return(
             <Gamestart 
                 playerdata={playerdata}
                 setplayerdata={setplayerdata()}
-                
+                turngame={turngame()}
             />
         )
     }

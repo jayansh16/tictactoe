@@ -1,4 +1,4 @@
-function currentchance({turn}){
+function currentchance({playerdata,turn}){
   return(
   <div className="chanceshow">
     <h1>chance:</h1>

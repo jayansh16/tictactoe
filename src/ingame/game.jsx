@@ -1,7 +1,7 @@
 import Turnsee from "./sideturncheck"
 import Grid from "./grid"
 
- function game({playerdata,setplayerdata,turn,changeturn}){
+ function game({playerdata,setplayerdata,turn,changeturn,showwon}){
         return(
             <>
             <main>
@@ -9,8 +9,9 @@ import Grid from "./grid"
                   <Grid 
                     playerdata={playerdata}
                     setplayerdata={setplayerdata()}
-                    changeturn={changeturn}
+                    changeturn={changeturn()}
                     turn={turn}
+                    showwon={showwon()}
                   />
                 </section>
                 <section className="turndisplay">
