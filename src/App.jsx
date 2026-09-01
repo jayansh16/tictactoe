@@ -122,8 +122,8 @@ function App() {
     }
   }
   function handlebox(boxnumber) {
-    const owned = playerdata[0].ownedboxes+playerdata[1].ownedboxes
-    if (boxnumber in owned) {
+    const owned = [...playerdata[0].ownedboxes, ...playerdata[1].ownedboxes]
+    if (owned.includes(boxnumber)) {
       alert("pick an empty box");
       return;
     } 
