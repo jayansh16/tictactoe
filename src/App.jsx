@@ -88,6 +88,23 @@ function App() {
     }
     turngame(true);
   }
+  function fillboxes(id){
+    if (id in playerdata[0].ownedboxes){
+      return {
+        src:playerdata[0].img.src,
+        alt:playerdata[0].img.alt
+      }
+    }
+    else if (id in playerdata[1].ownedboxes){
+      return {
+        src:playerdata[1].img.src,
+        alt:playerdata[1].img.alt
+      }
+    }
+    else{
+      return null
+    }
+  }
   function returnturnitems(){
     if (turn==="cross"){
       return {
@@ -110,12 +127,7 @@ function App() {
       alert("pick an empty box");
       return;
     } 
-    const handleItemClick = (event) => {
-      const clickedId = event.target.dataset.id;
     
-    if (clickedId){
-      setbox()
-    } }
     if (turn == "cross") {
       changeturn("zero");
       return
@@ -131,6 +143,8 @@ function App() {
         <Game
           returnturnitems={returnturnitems}
           box={box}
+          handlebox={handlebox}
+          fillboxes={fillboxes}
         />
       );
     } else {

@@ -1,7 +1,7 @@
 import Turnsee from "./sideturncheck";
 import Grid from "./grid";
 
-function Game({returnturnitems,box,handlebox}) {
+function Game({returnturnitems,box,handlebox,fillboxes}) {
   return (
     <>
       <main>
@@ -9,6 +9,7 @@ function Game({returnturnitems,box,handlebox}) {
           <Grid
             box={box}
             handlebox={handlebox}
+            fillboxes={fillboxes}
           />
         </section>
         <section className="turndisplay">

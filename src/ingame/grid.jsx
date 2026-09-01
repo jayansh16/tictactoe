@@ -1,9 +1,9 @@
-function Grid({box,handlebox}) {
+function Grid({box,handlebox,fillboxes}) {
   
   return box.map((n) => (
     <div className="gridbox" id={n}>
       <button id={n} onClick={()=>handlebox(n)}>
-        <img src={} alt= />
+        {!(fillboxes===null) && <img className= "boximage" src={fillboxes.src} alt={fillboxes.alt} />}
       </button>
     </div>
   ));
