@@ -29,28 +29,115 @@ function App() {
   const [gameon, turngame] = useState(false);
   const [won, showwon] = useState(false);
   const [turn, changeturn] = useState("cross");
+  const [box,setbox] = [
+  {id:1,
+    symbol:null
+    
+  },
+  {id:2,
+    symbol:null
+    
+  },
+  {id:3,
+    symbol:null
+    
+  },
+  {id:4,
+    symbol:null
+    
+  },
+  {id:5,
+    symbol:null
+    
+  },
+  {id:6,
+    symbol:null
+    
+  },
+  {id:7,
+    symbol:null
+    
+  },
+  {id:8,
+    symbol:null
+    
+  },
+  {id:9,
+    symbol:null
+    
+  },
+];
+  function handlestart(player1, player2) {
+    const updatePlayerName = (index, newName) => {
+      setplayerdata((prevData) =>
+        prevData.map((player, i) =>
+          i === index ? { ...player, playername: newName } : player,
+        ),
+      );
+    };
+
+    if (player1 === "") {
+      return;
+    } else {
+      updatePlayerName(0, player1);
+    }
+    if (player2 === "") {
+      return;
+    } else {
+      updatePlayerName(1, player2);
+    }
+    turngame(true);
+  }
+  function returnturnitems(){
+    if (turn==="cross"){
+      return {
+        player: playerdata[0].playername,
+        src:playerdata[0].img.src,
+        alt:playerdata[0].img.alt
+      }
+    }
+    else{
+      return {
+        player: playerdata[1].playername,
+        src:playerdata[1].img.src,
+        alt:playerdata[1].img.alt
+      }
+    }
+  }
+  function handlebox(boxnumber) {
+    const owned = playerdata[0].ownedboxes+playerdata[1].ownedboxes
+    if (boxnumber in owned) {
+      alert("pick an empty box");
+      return;
+    } 
+    const handleItemClick = (event) => {
+      const clickedId = event.target.dataset.id;
+    
+    if (clickedId){
+      setbox()
+    } }
+    if (turn == "cross") {
+      changeturn("zero");
+      return
+    } else if (turn == "zero") {
+      changeturn("cross");
+      return
+    }
+  }
+
   if (gameon) {
     if (!won) {
       return (
         <Game
-          playerdata={playerdata}
-          setplayerdata={setplayerdata()}
-          turn={turn}
-          changeturn={changeturn}
-          showwon={showwon()}
+          returnturnitems={returnturnitems}
+          box={box}
         />
       );
     } else {
-      return <Gameend turngame={turngame()} />;
+      return <Gameend turngame={turngame} />;
     }
   } else {
-    return (
-      <Gamestart
-        playerdata={playerdata}
-        setplayerdata={setplayerdata()}
-        turngame={turngame()}
-      />
-    );
+    return <Gamestart handlestart={handlestart} />;
   }
 }
 

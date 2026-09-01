@@ -1,22 +1,10 @@
-function Currentchance({ playerdata, turn }) {
+function Currentchance({ returnturnitems}) {
   return (
     <div className="chanceshow">
-      <h1>chance:</h1>
-      {turn == cross ? (
-        <div className="turnshow">
-          <img src="" alt="" />
-          <h2 id="player1">
-            {player1}:{}
-          </h2>
-        </div>
-      ) : (
-        <div className="turnshow">
-          <img src="" alt="" />
-          <h2 id="player2">
-            {player2}:{}
-          </h2>
-        </div>
-      )}
+                <img src={returnturnitems.src} alt={returnturnitems.alt} />
+
+          <h1>chance:</h1>
+          <h2 id="player">{returnturnitems.player}</h2>
     </div>
   );
 }

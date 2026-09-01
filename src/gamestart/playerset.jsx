@@ -1,15 +1,7 @@
-function Playerchoose({ playerdata, setplayerdata, turngame }) {
+function Playerchoose({ handlestart }) {
   const player1 = document.querySelector("#player1").value;
   const player2 = document.querySelector("#player2").value;
-  function handlestart() {
-    if (player1 === "") {
-      //save it as default value
-    }
-    if (player2 === "") {
-      //save it as default value
-    }
-    turngame(true);
-  }
+  
   return (
     <div className="choose">
       <div className="options">
@@ -34,7 +26,7 @@ function Playerchoose({ playerdata, setplayerdata, turngame }) {
           />
         </label>
       </div>
-      <button className="startgame" onClick={()=>handlestart}></button>
+      <button className="startgame" onClick={()=>handlestart(player1,player2)}></button>
     </div>
   );
 }
