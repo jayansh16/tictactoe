@@ -105,36 +105,39 @@ function App() {
       prev.map((b) => (b.id === boxnumber ? { ...b, symbol: turn } : b)),
     );
     definevictory();
-    if (turn == "cross") {
-      changeturn("zero");
-      return;
-    } else if (turn == "zero") {
-      changeturn("cross");
-      return;
-    }
+     changeturn(turn==="cross" ? "zero" : "cross");
+    
   }
   //game end
-  function definevictory() {
-    //check draw
-    let draw = true;
-    for (let i = 1; i < box.length; i++) {
-      if (i.symbol === null) {
-        draw = false;
-      }
+  function definevictory(boxesToCheck) {
+  const checkBoxes = boxesToCheck || box;
+
+  const winnerCombos = [
+    [1, 2, 3],[4, 5, 6],[7, 8, 9], // rows
+    [1, 4, 7],[2, 5, 8],[3, 6, 9], // cols
+    [1, 5, 9],[3, 5, 7],           // diags
+  ];
+
+  for (const combo of winnerCombos) {
+    const [a,b,c] = combo;
+    const s1 = checkBoxes.find(x=>x.id===a)?.symbol;
+    const s2 = checkBoxes.find(x=>x.id===b)?.symbol;
+    const s3 = checkBoxes.find(x=>x.id===c)?.symbol;
+    if (s1 && s1===s2 && s1===s3) {
+      showwon(s1); // "cross" or "zero"
+      return s1;
     }
-    if (draw) {
-      return draw;
-    }
-    //check win
-    const winner = [
-      [1, 2, 3],[4, 5, 6],[7, 8, 9],   //rows
-      [1, 4, 7],[2, 5, 8],[3, 6, 9],   //coloumns
-      [1, 5, 9],[3, 5, 7],             //diagnols
-    ];
   }
 
+  const isDraw = checkBoxes.every(b=>b.symbol!==null);
+  if (isDraw) {
+    showwon("draw");
+    return "draw";
+  }
+  return null;
+}
+
   function handlerestart() {
-    const placeholder = "to restart game";
     turngame(false);
   }
 //-----------------
