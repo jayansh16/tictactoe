@@ -1,7 +1,4 @@
-function Playerchoose({ handlestart }) {
-  const player1 = document.querySelector("#player1").value;
-  const player2 = document.querySelector("#player2").value;
-  
+function Playerchoose({playerdata, handlestart }) {
   return (
     <div className="choose">
       <div className="options">
@@ -10,7 +7,7 @@ function Playerchoose({ handlestart }) {
           <input
             type="text"
             className="chooseinput"
-            defaultValue="player1"
+            defaultValue={playerdata[0].playername}
             id="player1"
           />
         </label>
@@ -21,12 +18,16 @@ function Playerchoose({ handlestart }) {
           <input
             type="text"
             className="chooseinput"
-            defaultValue="player2"
+            defaultValue={playerdata[1].playername}
             id="player2"
           />
         </label>
       </div>
-      <button className="startgame" onClick={()=>handlestart(player1,player2)}></button>
+      <button className="startgame" onClick={()=>function(){
+        const player1 = document.querySelector("#player1").value;
+        const player2 = document.querySelector("#player2").value;
+        handlestart(player1,player2)
+        }}></button>
     </div>
   );
 }
